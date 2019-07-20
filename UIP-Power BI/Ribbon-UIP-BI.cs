@@ -15,7 +15,7 @@ namespace UIP_Power_BI
 
         private void Add_New_Trade_Button_Click(object sender, RibbonControlEventArgs e)
         {
-            Globals.ThisWorkbook.Application.Run("Test");
+            Globals.ThisWorkbook.Application.Run("NewSheetButton");
         }
     }
 }
