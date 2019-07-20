@@ -34,8 +34,8 @@ start:
     Sheets("Template").Copy After:=Sheets(Sheets.Count)
     Set copiedSheet = ActiveSheet
     copiedSheet.Name = NewTrade_ID
-
     
+    'Add new sheet to Index
     Range("TradesTable").ListObject.ListRows.Add
     Range("TradesTable").Cells(Range("TradesTable").ListObject.ListRows.Count, 1) = NewTrade_ID
     
@@ -53,6 +53,7 @@ start:
 End Sub
 Function strOut(strIn As String) As String
     Dim objRegex As Object
+    
     Set objRegex = CreateObject("vbscript.regexp")
     With objRegex
         .Pattern = "^[0-9]{4}$"
@@ -61,11 +62,11 @@ Function strOut(strIn As String) As String
 End Function
 Function SheetExists(shtName As String, Optional wb As Workbook) As Boolean
     Dim sht As Worksheet
-
-     If wb Is Nothing Then Set wb = ThisWorkbook
-     On Error Resume Next
-     Set sht = wb.Sheets(shtName)
-     On Error GoTo 0
-     SheetExists = Not sht Is Nothing
- End Function
+    
+    If wb Is Nothing Then Set wb = ThisWorkbook
+    On Error Resume Next
+    Set sht = wb.Sheets(shtName)
+    On Error GoTo 0
+    SheetExists = Not sht Is Nothing
+End Function
 
