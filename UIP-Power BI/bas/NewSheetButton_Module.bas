@@ -57,7 +57,7 @@ Function strOut(strIn As String) As String
     Set objRegex = CreateObject("vbscript.regexp")
     With objRegex
         .Pattern = "^[0-9]{4}$"
-        strOut = .Test(strIn)
+        strOut = .test(strIn)
     End With
 End Function
 Function SheetExists(shtName As String, Optional wb As Workbook) As Boolean

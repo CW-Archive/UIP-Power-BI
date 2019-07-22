@@ -1,4 +1,4 @@
 Attribute VB_Name = "Main_Module"
-Sub Test()
+Sub test()
     MsgBox ("This worked somehow")
 End Sub
