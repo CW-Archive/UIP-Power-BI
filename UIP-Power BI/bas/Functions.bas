@@ -1,5 +1,7 @@
 Attribute VB_Name = "Functions"
 Function Measurements_Lookup(MID_Input As String, MID_Column As String)
+    Application.Volatile
+
 
     Split_MIDs = Split(MID_Input, ",")
 
