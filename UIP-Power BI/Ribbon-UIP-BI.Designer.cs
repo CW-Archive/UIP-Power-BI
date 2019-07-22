@@ -35,39 +35,44 @@
         private void InitializeComponent()
         {
             this.UIP_BI = this.Factory.CreateRibbonTab();
-            this.Setup_Group = this.Factory.CreateRibbonGroup();
-            this.Backup_Copy_SplitButton = this.Factory.CreateRibbonSplitButton();
+            this.General_Group = this.Factory.CreateRibbonGroup();
+            this.TradeUpdates_Group = this.Factory.CreateRibbonGroup();
             this.Add_New_Trade_Button = this.Factory.CreateRibbonButton();
             this.View_Settings_Button = this.Factory.CreateRibbonButton();
+            this.View_Index_Button = this.Factory.CreateRibbonButton();
             this.Create_Backup_Button = this.Factory.CreateRibbonButton();
+            this.CreateTradeExportTable_Button = this.Factory.CreateRibbonButton();
+            this.UpdateTrade_Button = this.Factory.CreateRibbonButton();
+            this.UpdateTradeSchedule_Button = this.Factory.CreateRibbonButton();
             this.UIP_BI.SuspendLayout();
-            this.Setup_Group.SuspendLayout();
+            this.General_Group.SuspendLayout();
+            this.TradeUpdates_Group.SuspendLayout();
             this.SuspendLayout();
             // 
             // UIP_BI
             // 
             this.UIP_BI.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
-            this.UIP_BI.Groups.Add(this.Setup_Group);
+            this.UIP_BI.Groups.Add(this.General_Group);
+            this.UIP_BI.Groups.Add(this.TradeUpdates_Group);
             this.UIP_BI.Label = "UIP BI";
             this.UIP_BI.Name = "UIP_BI";
             // 
-            // Setup_Group
+            // General_Group
             // 
-            this.Setup_Group.Items.Add(this.Add_New_Trade_Button);
-            this.Setup_Group.Items.Add(this.View_Settings_Button);
-            this.Setup_Group.Items.Add(this.Backup_Copy_SplitButton);
-            this.Setup_Group.Label = "Setup";
-            this.Setup_Group.Name = "Setup_Group";
+            this.General_Group.Items.Add(this.Add_New_Trade_Button);
+            this.General_Group.Items.Add(this.View_Settings_Button);
+            this.General_Group.Items.Add(this.View_Index_Button);
+            this.General_Group.Items.Add(this.Create_Backup_Button);
+            this.General_Group.Label = "General";
+            this.General_Group.Name = "General_Group";
             // 
-            // Backup_Copy_SplitButton
+            // TradeUpdates_Group
             // 
-            this.Backup_Copy_SplitButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.Backup_Copy_SplitButton.Items.Add(this.Create_Backup_Button);
-            this.Backup_Copy_SplitButton.Label = "Create Backup Copy";
-            this.Backup_Copy_SplitButton.Name = "Backup_Copy_SplitButton";
-            this.Backup_Copy_SplitButton.OfficeImageId = "Archive";
-            this.Backup_Copy_SplitButton.SuperTip = "Saves a dated copy of this file to a \"Backup Copies\" folder at the same location " +
-    "as the current file.";
+            this.TradeUpdates_Group.Items.Add(this.CreateTradeExportTable_Button);
+            this.TradeUpdates_Group.Items.Add(this.UpdateTradeSchedule_Button);
+            this.TradeUpdates_Group.Items.Add(this.UpdateTrade_Button);
+            this.TradeUpdates_Group.Label = "Trade Updates";
+            this.TradeUpdates_Group.Name = "TradeUpdates_Group";
             // 
             // Add_New_Trade_Button
             // 
@@ -86,14 +91,47 @@
             this.View_Settings_Button.OfficeImageId = "AddInManager";
             this.View_Settings_Button.ShowImage = true;
             // 
+            // View_Index_Button
+            // 
+            this.View_Index_Button.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.View_Index_Button.Label = "View Index";
+            this.View_Index_Button.Name = "View_Index_Button";
+            this.View_Index_Button.OfficeImageId = "AccessRelinkLists";
+            this.View_Index_Button.ShowImage = true;
+            // 
             // Create_Backup_Button
             // 
+            this.Create_Backup_Button.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.Create_Backup_Button.Label = "Create Backup Copy";
             this.Create_Backup_Button.Name = "Create_Backup_Button";
             this.Create_Backup_Button.OfficeImageId = "Archive";
             this.Create_Backup_Button.ShowImage = true;
             this.Create_Backup_Button.SuperTip = "Saves a dated copy of this file to a \"Backup Copies\" folder at the same location " +
     "as the current file.";
+            // 
+            // CreateTradeExportTable_Button
+            // 
+            this.CreateTradeExportTable_Button.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.CreateTradeExportTable_Button.Label = "Create Trade Export Table";
+            this.CreateTradeExportTable_Button.Name = "CreateTradeExportTable_Button";
+            this.CreateTradeExportTable_Button.OfficeImageId = "AdpDiagramAddTable";
+            this.CreateTradeExportTable_Button.ShowImage = true;
+            // 
+            // UpdateTrade_Button
+            // 
+            this.UpdateTrade_Button.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.UpdateTrade_Button.Label = "Update Trade";
+            this.UpdateTrade_Button.Name = "UpdateTrade_Button";
+            this.UpdateTrade_Button.OfficeImageId = "AccessListTasks";
+            this.UpdateTrade_Button.ShowImage = true;
+            // 
+            // UpdateTradeSchedule_Button
+            // 
+            this.UpdateTradeSchedule_Button.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.UpdateTradeSchedule_Button.Label = "Update Trade Schedule";
+            this.UpdateTradeSchedule_Button.Name = "UpdateTradeSchedule_Button";
+            this.UpdateTradeSchedule_Button.OfficeImageId = "CalendarViewGallery";
+            this.UpdateTradeSchedule_Button.ShowImage = true;
             // 
             // Ribbon_UIP_BI
             // 
@@ -103,8 +141,10 @@
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Ribbon_UIP_BI_Load);
             this.UIP_BI.ResumeLayout(false);
             this.UIP_BI.PerformLayout();
-            this.Setup_Group.ResumeLayout(false);
-            this.Setup_Group.PerformLayout();
+            this.General_Group.ResumeLayout(false);
+            this.General_Group.PerformLayout();
+            this.TradeUpdates_Group.ResumeLayout(false);
+            this.TradeUpdates_Group.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -112,11 +152,15 @@
         #endregion
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab UIP_BI;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup Setup_Group;
-        internal Microsoft.Office.Tools.Ribbon.RibbonSplitButton Backup_Copy_SplitButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup General_Group;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton Add_New_Trade_Button;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton View_Settings_Button;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton Create_Backup_Button;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup TradeUpdates_Group;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton View_Index_Button;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton CreateTradeExportTable_Button;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton UpdateTrade_Button;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton UpdateTradeSchedule_Button;
     }
 
     partial class ThisRibbonCollection
