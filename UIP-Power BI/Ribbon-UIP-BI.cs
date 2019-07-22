@@ -18,5 +18,14 @@ namespace UIP_Power_BI
             Globals.ThisWorkbook.Application.Run("NewSheetButton");
         }
 
+        private void View_Settings_Button_Click(object sender, RibbonControlEventArgs e)
+        {
+            Globals.ThisWorkbook.Application.Run("ViewSettings_Sub");
+        }
+
+        private void View_Index_Button_Click(object sender, RibbonControlEventArgs e)
+        {
+            Globals.ThisWorkbook.Application.Run("ViewIndex_Sub");
+        }
     }
 }

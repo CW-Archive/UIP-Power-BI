@@ -90,6 +90,7 @@
             this.View_Settings_Button.Name = "View_Settings_Button";
             this.View_Settings_Button.OfficeImageId = "AddInManager";
             this.View_Settings_Button.ShowImage = true;
+            this.View_Settings_Button.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.View_Settings_Button_Click);
             // 
             // View_Index_Button
             // 
@@ -98,6 +99,7 @@
             this.View_Index_Button.Name = "View_Index_Button";
             this.View_Index_Button.OfficeImageId = "AccessRelinkLists";
             this.View_Index_Button.ShowImage = true;
+            this.View_Index_Button.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.View_Index_Button_Click);
             // 
             // Create_Backup_Button
             // 
