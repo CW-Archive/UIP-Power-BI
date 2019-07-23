@@ -74,5 +74,4 @@ Sub CreateTradeExportTable_Sub()
             Range("ExportTable_" & SheetName).ListObject.Range(rc + 1, 1) = StartDate_AllAreas + rc - 1
         End If
     Next rc
-    
 End Sub
