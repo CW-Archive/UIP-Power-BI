@@ -1,6 +1,7 @@
 Attribute VB_Name = "UpdateTradeSchedule_Module"
 Option Explicit
 Sub UpdateTradeSchedule_Sub()
+    Application.ScreenUpdating = False
     Dim SheetName As String
     Dim IsTradeSheet As Boolean
     Dim Works_Sun As Boolean, Works_Mon As Boolean, Works_Tue As Boolean, Works_Wed As Boolean, Works_Thu As Boolean, Works_Fri As Boolean, Works_Sat As Boolean
@@ -13,8 +14,7 @@ Sub UpdateTradeSchedule_Sub()
     Dim atr_dc_isHoliday As Boolean, atr_dc_isWorkDay As Boolean
     Dim d
     Dim atr_production As Double
-    
-    
+    Dim op_array As Long, op_table As Long, areas_count As Long, indexcol2 As Long
     
     ' check to see if you are on a trade sheet
     SheetName = ActiveSheet.Name
@@ -44,6 +44,7 @@ Sub UpdateTradeSchedule_Sub()
     
     AreasTable = Range("AreasTable_" & SheetName).ListObject.DataBodyRange
     ExportTable = Range("ExportTable_" & SheetName).ListObject.DataBodyRange
+    
     AreasTable_ColCount = Range("AreasTable_" & SheetName).ListObject.ListColumns.Count
     AreasTable_RowCount = Range("AreasTable_" & SheetName).ListObject.ListRows.Count
     
@@ -217,10 +218,23 @@ Sub UpdateTradeSchedule_Sub()
             
         Next atr_dayupdate
     Next atr
-    ' copy old production from old ExportTable array
+    ' copy old production from old ExportTable array NOT WORKING!
+    For op_array = 1 To UBound(ExportTable, 1) - LBound(ExportTable, 1) + 1
+        For op_table = 1 To ExportTable_RowCountAfter + 1
+            If Range("ExportTable_" & SheetName).ListObject.Range(op_table, 1) = ExportTable(op_array, 1) Then
+                'Debug.Print Range("ExportTable_" & SheetName).ListObject.Range(op_table, 1)
+                For areas_count = 1 To AreasTable_RowCount
+                    indexcol2 = Range("ExportTable_" & SheetName).ListObject.ListColumns("CompTotal_" & AreasTable(areas_count, 1)).Index
+                    Range("ExportTable_" & SheetName).ListObject.Range(op_table, indexcol2) = ExportTable(op_array, indexcol2)
+                Next areas_count
+            Else
+
+            End If
+        Next op_table
+    Next op_array
     
     ' check totals
     ' request if they would like to do an update if there is any production in the completed total
     
-    
+    Application.ScreenUpdating = True
 End Sub
