@@ -1,11 +1,13 @@
 Attribute VB_Name = "CreateTradeExportTable_Module"
+Option Explicit
 Sub CreateTradeExportTable_Sub()
     Dim SheetName As String
     Dim IsTradeSheet As Boolean
-    Dim ExportTable_ColCount As Long, ac As Long, r As Long
-    Dim Works_Sun As Boolean, Works_Mon As Boolean, Works_Tue As Boolean, Works_Wed As Boolean, Works_Thu As Boolean, Works_Fri As Boolean, Works_Sat As Boolean
-    
-    
+    Dim ExportTable_ColCount As Long, ExportTable_RowCount As Long, ac As Long, r As Long, NumRowsToCreate As Long, rc As Long
+    Dim e
+    Dim AreasTable
+    Dim StartDate_AllAreas As Date, FinishDate_AllAreas As Date
+
     ' Check that active sheet is a trade sheet
     SheetName = ActiveSheet.Name
     IsTradeSheet = strOut(SheetName)
@@ -25,14 +27,7 @@ Sub CreateTradeExportTable_Sub()
     End If
     
     ' import data / settings
-    Works_Sun = IIf(Range("C11").Value = "YES", True, False)
-    Works_Mon = IIf(Range("C12").Value = "YES", True, False)
-    Works_Tue = IIf(Range("C13").Value = "YES", True, False)
-    Works_Wed = IIf(Range("C14").Value = "YES", True, False)
-    Works_Thu = IIf(Range("C15").Value = "YES", True, False)
-    Works_Fri = IIf(Range("C16").Value = "YES", True, False)
-    Works_Sat = IIf(Range("C17").Value = "YES", True, False)
-    
+
     AreasTable = Range("AreasTable_" & SheetName).ListObject.DataBodyRange
     
     ' create table columns
